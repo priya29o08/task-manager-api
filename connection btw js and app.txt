@@ -1,0 +1,32 @@
+fetch('http://127.0.0.1:5000/tasks')
+```
+
+**What's happening:**
+- Your browser (from the HTML page) sends an HTTP request to `http://127.0.0.1:5000/tasks`
+- Flask server receives it
+- Flask looks for a route that matches `/tasks`
+- Finds your `get_tasks()` function
+- Runs it, gets data from database
+- Sends back JSON response
+- JavaScript receives it and updates the page
+
+---
+
+## VISUAL REPRESENTATION:
+```
+YOUR COMPUTER
+├── index.html (opened in Chrome at file:///C:/Users/.../index.html)
+│   └── JavaScript runs
+│       └── fetch('http://127.0.0.1:5000/tasks') 
+│           │
+│           └──────── HTTP REQUEST ─────────┐
+│                                           │
+└── app.py (running at http://127.0.0.1:5000)  │
+    └── Flask receives request ←─────────────┘
+        └── @app.route('/tasks') matches!
+            └── get_tasks() runs
+                └── Queries database
+                    └── Returns JSON ──────┐
+                                           │
+    Browser receives response ←────────────┘
+    └── JavaScript updates the page
