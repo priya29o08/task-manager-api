@@ -137,7 +137,7 @@
     </div>
 
     <script>
-        const API_URL = 'http://127.0.0.1:5000';
+        const API_URL = 'https://task-manager-api-lcud.onrender.com/';
 
         // Load tasks when page loads
         window.onload = function() {
@@ -152,9 +152,9 @@
                     const taskList = document.getElementById('taskList');
                     taskList.innerHTML = '';
                     
-                    data.tasks.forEach(task => {
-                        const taskDiv = document.createElement('div');
-                        taskDiv.className = `task ${task.completed ? 'completed' : ''}`;
+                    data.tasks.forEach(task => {                 //for each task
+                        const taskDiv = document.createElement('div');   //create div
+                        taskDiv.className = `task ${task.completed ? 'completed' : ''}`;             
                         
                         taskDiv.innerHTML = `
                             <div class="task-content">
